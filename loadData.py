@@ -49,4 +49,4 @@ for curency in Curency :
     for j in range(len(textTime)) :
         ohlc = pd.DataFrame(mt.copy_rates_from("EURUSD", time_frame[j], current_time, no_of_row))
         ohlc = GetAll_indicator(ohlc)
-        ohlc.to_csv(f"ohlc_allCurency/ohlc_{curency}{textTime[j]}")
+        ohlc.to_csv(f"ohlc_allCurency/ohlc_{curency}{textTime[j]}.csv")
