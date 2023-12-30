@@ -17,6 +17,9 @@ def find_crossovers(df, macd_col='macd', signal_col='signal', cross_col='cross')
 
     return df
 
-df = find_crossovers(df, macd_col='MACD', signal_col='Signal', cross_col='cross')
+# df = find_crossovers(df, macd_col='MACD', signal_col='Signal', cross_col='cross')
 
-df.to_csv('df.csv')
+df["DifEma50"] = np.round(df['close'] - df['EMA50'], decimals= 5)
+df["DifEma200"] = np.round(df['close'] - df['EMA200'], decimals= 5)
+
+df.to_csv('df.csv', index = False)
