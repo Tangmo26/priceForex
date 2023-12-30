@@ -42,3 +42,11 @@ textTime = ['5m', '15m', '30m', '1h', '2h', '4h']
 
 # Set a large number for historical data
 no_of_row = 99999
+
+os.makedirs('ohlc_allCurency', exist_ok=True)
+
+for curency in Curency :
+    for j in range(len(textTime)) :
+        ohlc = pd.DataFrame(mt.copy_rates_from("EURUSD", time_frame[j], current_time, no_of_row))
+        ohlc = GetAll_indicator(ohlc)
+        ohlc.to_csv(f"ohlc_allCurency/ohlc_{curency}{textTime[j]}")
